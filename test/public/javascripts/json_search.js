@@ -3,11 +3,19 @@ var JsonSearch = function (list) {
 }
 JsonSearch.prototype.all = function(query){
   var results = []
-  for (var i in this.list){
-    if (query.val == this.list[i]) {
-      results.push([i])
+
+  var search = function(keyword, collection){
+    for (var i in collection){
+      if (keyword == collection[i]) {
+        results.push([i])
+      };
+      // if (typeof(this.list[i]) == "object") {
+      // };
     };
   };
+  
+  search(query.val, this.list);
+
   return results;
 }
 
