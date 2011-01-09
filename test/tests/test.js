@@ -70,6 +70,11 @@ test("combo seach all by value returns multiple", function() {
   deepEqual(combo_test.all({val:10}), ['["2"]["c"]["age"]', '["3"]["d"]["age"]']);
 });
 
+test("combo seach all by key returns multiple", function() {
+  deepEqual(combo_test.all({key:"age"}), ['["2"]["c"]["age"]', '["3"]["d"]["age"]']);
+});
+
+
 var match = {
   a:"foo",
   b:"foos",
@@ -77,7 +82,7 @@ var match = {
 };
 var match_test = new JsonSearch(match);
 
-test("match option works", function () {
+test("match option works if set to true", function () {
   deepEqual(match_test.all({val:"foo", match:true}), ['["a"]', '["b"]']);
 });
 
@@ -100,9 +105,6 @@ test("function is ignored", function(){
 })
 
 // 
-test("combo seach all by value returns multiple", function() {
-  deepEqual(combo_test.all({key:"age"}), ['["2"]["c"]["age"]', '["3"]["d"]["age"]']);
-});
 
 
 // test("ignore function or prototype methods"), function () {
