@@ -100,9 +100,10 @@ test("function is ignored", function(){
 })
 
 // 
-// test("key"), function () {
-//   return false;
-// }
+test("combo seach all by value returns multiple", function() {
+  deepEqual(combo_test.all({key:"age"}), ['["2"]["c"]["age"]', '["3"]["d"]["age"]']);
+});
+
 
 // test("ignore function or prototype methods"), function () {
 //   return false;

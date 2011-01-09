@@ -3,7 +3,7 @@ var JsonSearch = function (list) {
 };
 JsonSearch.prototype.all = function(query){
   var results = [];
-  var keyword = query.val;
+  var keyword = query.key ? query.key : query.val;
   var equal = function(keyword, string){
     return keyword == string;
   };
@@ -22,7 +22,7 @@ JsonSearch.prototype.all = function(query){
     for (var i in collection){
       // console.log("i: " + i);
       // console.log("collection[i]: " + collection[i]);
-      if (selection(keyword, collection[i])) {
+      if (selection(keyword, query.key ? i : collection[i])) {
         results.push(append(result, i));
       };
       if (typeof(collection[i]) == "object") {
