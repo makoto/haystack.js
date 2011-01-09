@@ -1,16 +1,16 @@
 var JsonSearch = function (list) {
   this.list = list;
-}
+};
 JsonSearch.prototype.all = function(query){
-  var results = []
+  var results = [];
   var keyword = query.val;
   var equal = function(keyword, string){
-    return keyword == string
-  }
+    return keyword == string;
+  };
 
   var match = function(keyword, string){
-    return string.match(keyword)
-  }
+    return string.match(keyword);
+  };
 
   var selection = query.match ? match : equal;
 
@@ -33,10 +33,10 @@ JsonSearch.prototype.all = function(query){
   search(this.list, "");
   console.log("RESULT: " + results);
   return results;
-}
+};
 
 JsonSearch.prototype.first = function(){
   return false;
-}
+};
 
 
