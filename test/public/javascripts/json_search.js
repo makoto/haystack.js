@@ -4,6 +4,15 @@ var JsonSearch = function (list) {
 JsonSearch.prototype.all = function(query){
   var results = []
   var keyword = query.val;
+  var equal = function(keyword, string){
+    return keyword == string
+  }
+
+  var match = function(keyword, string){
+    return string.match(keyword)
+  }
+
+  var selection = query.match ? match : equal;
 
   var append = function(body, value){
     return body + '["' + value + '"]';
@@ -11,7 +20,9 @@ JsonSearch.prototype.all = function(query){
 
   var search = function(collection, result){
     for (var i in collection){
-      if (keyword == collection[i]) {
+      // console.log("i: " + i);
+      // console.log("collection[i]: " + collection[i]);
+      if (selection(keyword, collection[i])) {
         results.push(append(result, i));
       };
       if (typeof(collection[i]) == "object") {

@@ -75,24 +75,24 @@ test("array seach all by value returns multiple", function() {
   deepEqual(test.all({val:10}), ['["2"]["c"]["age"]', '["3"]["d"]["age"]']);
 });
 
-var regex = {
+var match = {
   a:"foo",
   b:"foos",
   c:"bar"
 };
 
-test("regex option works", function () {
-  var test = new JsonSearch(regex);
+test("match option works", function () {
+  var test = new JsonSearch(match);
   deepEqual(test.all({val:"foo", match:true}), ['["a"]', '["b"]']);
 });
 
-test("regex option does not work if set to false", function () {
-  var test = new JsonSearch(regex);
+test("match option does not work if set to false", function () {
+  var test = new JsonSearch(match);
   deepEqual(test.all({val:"foo"}), ['["a"]']);
 });
 
-test("regex option does not work by default", function () {
-  var test = new JsonSearch(regex);
+test("match option does not work by default", function () {
+  var test = new JsonSearch(match);
   deepEqual(test.all({val:"foo"}), ['["a"]']);
 });
 
