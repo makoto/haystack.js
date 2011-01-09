@@ -31,7 +31,7 @@ JsonSearch.prototype.all = function(query){
     };
   };
   search(this.list, "");
-  console.log("RESULT: " + results);
+  console && console.log("RESULT: " + results);
   return results;
 };
 
