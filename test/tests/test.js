@@ -86,6 +86,15 @@ test("match option works if set to true", function () {
   deepEqual(match_test.all({val:"foo", match:true}), ['["a"]', '["b"]']);
 });
 
+// Alternative syntax
+// match_test.key("name")
+// match_test.val("foo")
+// match_test.all("1")
+// match_test.key("age", {limit:3})
+// match_test.key("/age/i", {match:true})
+// match_test.val("3", {gt:true}) // Any value which is greater than 3
+// match_test.all({key:"name", val:"bob"}) // This does not in line with other syntaxes.
+
 test("match option does not work if set to false", function () {
   deepEqual(match_test.all({val:"foo"}), ['["a"]']);
 });
