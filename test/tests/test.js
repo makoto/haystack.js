@@ -90,12 +90,12 @@ test("match option works if set to true", function () {
 // match_test.key("name")
 // match_test.val("foo")
 // match_test.all("1")                       // either key or value matches "1"
+// match_test.exist("/foo/i")                // Just check whether the key/val exists by using regex.
 // match_test.both("name", {}, "bob", {})    // where name = "bob"
 // match_test.key("age", {limit:3})          // Limits output
 // match_test.key("age", {v:false})          // Disable console.log
 // match_test.key("/age/i", {match:true})    // Accept regular expression
 // match_test.val("3", {gt:true})            // Any value which is greater than 3
-// match_test.val("foo", {exit:true})        // Just check whether the value exists or not.
 
 test("match option does not work if set to false", function () {
   deepEqual(match_test.all({val:"foo"}), ['["a"]']);
