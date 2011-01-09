@@ -95,6 +95,10 @@ test("match option does not work by default", function () {
 //   return false;
 // }
 
+// test("ignore function or prototype methods"), function () {
+//   return false;
+// }
+
 // test("hash seach first by value returns one", function() {
 //   var test = new JsonSearch(hash);
 //   deepEqual(test.first({val:10}),  ['["c"]["age"]']);
