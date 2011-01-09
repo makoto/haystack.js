@@ -10,19 +10,18 @@ var hash = {
     age:10
   }
 };
+var hash_test = new JsonSearch(hash);
+
 test("hash seach all by value returns from first depth", function() {
-  var test = new JsonSearch(hash);
-  deepEqual(test.all({val:"A"}), ['["a"]']);
+  deepEqual(hash_test.all({val:"A"}), ['["a"]']);
 });
 
 test("hash seach all by value returns from nested", function() {
-  var test = new JsonSearch(hash);
-  deepEqual(test.all({val:"bob"}), ['["c"]["name"]']);
+  deepEqual(hash_test.all({val:"bob"}), ['["c"]["name"]']);
 });
 
 test("hash seach all by value returns multiple", function() {
-  var test = new JsonSearch(hash);
-  deepEqual(test.all({val:10}), ['["c"]["age"]', '["d"]["age"]']);
+  deepEqual(hash_test.all({val:10}), ['["c"]["age"]', '["d"]["age"]']);
 });
 
 var array = [
@@ -31,20 +30,18 @@ var array = [
   ["bob", 10],
   ["mark",10]
 ];
+var array_test = new JsonSearch(array);
 
 test("array seach all by value returns from first depth", function() {
-  var test = new JsonSearch(array);
-  deepEqual(test.all({val:"A"}), ['["0"]']);
+  deepEqual(array_test.all({val:"A"}), ['["0"]']);
 });
 
 test("array seach all by value returns from nested", function() {
-  var test = new JsonSearch(array);
-  deepEqual(test.all({val:"bob"}), ['["2"]["0"]']);
+  deepEqual(array_test.all({val:"bob"}), ['["2"]["0"]']);
 });
 
 test("array seach all by value returns multiple", function() {
-  var test = new JsonSearch(array);
-  deepEqual(test.all({val:10}), ['["2"]["1"]', '["3"]["1"]']);
+  deepEqual(array_test.all({val:10}), ['["2"]["1"]', '["3"]["1"]']);
 });
 
 var combo = [
@@ -60,19 +57,17 @@ var combo = [
   }}
 ];
 
+var combo_test = new JsonSearch(combo);
 test("array seach all by value returns from first depth", function() {
-  var test = new JsonSearch(combo);
-  deepEqual(test.all({val:"A"}), ['["0"]["a"]']);
+  deepEqual(combo_test.all({val:"A"}), ['["0"]["a"]']);
 });
 
 test("array seach all by value returns from nested", function() {
-  var test = new JsonSearch(combo);
-  deepEqual(test.all({val:"bob"}), ['["2"]["c"]["name"]']);
+  deepEqual(combo_test.all({val:"bob"}), ['["2"]["c"]["name"]']);
 });
 
 test("array seach all by value returns multiple", function() {
-  var test = new JsonSearch(combo);
-  deepEqual(test.all({val:10}), ['["2"]["c"]["age"]', '["3"]["d"]["age"]']);
+  deepEqual(combo_test.all({val:10}), ['["2"]["c"]["age"]', '["3"]["d"]["age"]']);
 });
 
 var match = {
@@ -80,20 +75,18 @@ var match = {
   b:"foos",
   c:"bar"
 };
+var match_test = new JsonSearch(match);
 
 test("match option works", function () {
-  var test = new JsonSearch(match);
-  deepEqual(test.all({val:"foo", match:true}), ['["a"]', '["b"]']);
+  deepEqual(match_test.all({val:"foo", match:true}), ['["a"]', '["b"]']);
 });
 
 test("match option does not work if set to false", function () {
-  var test = new JsonSearch(match);
-  deepEqual(test.all({val:"foo"}), ['["a"]']);
+  deepEqual(match_test.all({val:"foo"}), ['["a"]']);
 });
 
 test("match option does not work by default", function () {
-  var test = new JsonSearch(match);
-  deepEqual(test.all({val:"foo"}), ['["a"]']);
+  deepEqual(match_test.all({val:"foo"}), ['["a"]']);
 });
 
 
