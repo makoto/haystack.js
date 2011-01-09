@@ -89,6 +89,15 @@ test("match option does not work by default", function () {
   deepEqual(match_test.all({val:"foo"}), ['["a"]']);
 });
 
+var func = {
+  a:"hello",
+  b:function(){},
+  c:"world"
+};
+var function_test = new JsonSearch(func);
+test("function is ignored", function(){
+  deepEqual(function_test.all({val:"world"}), ['["c"]']);
+})
 
 // 
 // test("key"), function () {
