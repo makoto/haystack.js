@@ -58,15 +58,15 @@ var combo = [
 ];
 
 var combo_test = new JsonSearch(combo);
-test("array seach all by value returns from first depth", function() {
+test("combo seach all by value returns from first depth", function() {
   deepEqual(combo_test.all({val:"A"}), ['["0"]["a"]']);
 });
 
-test("array seach all by value returns from nested", function() {
+test("combo seach all by value returns from nested", function() {
   deepEqual(combo_test.all({val:"bob"}), ['["2"]["c"]["name"]']);
 });
 
-test("array seach all by value returns multiple", function() {
+test("combo seach all by value returns multiple", function() {
   deepEqual(combo_test.all({val:10}), ['["2"]["c"]["age"]', '["3"]["d"]["age"]']);
 });
 
