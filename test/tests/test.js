@@ -47,11 +47,39 @@ test("array seach all by value returns multiple", function() {
   deepEqual(test.all({val:10}), ['["2"]["1"]', '["3"]["1"]']);
 })
 
-// test("combo"), function () {
-//   return false;
-// }
+var combo = [
+  {a:"A"},
+  {b:"B"},
+  {c:{
+    name:"bob",
+    age:10
+  }},
+  {d:{
+    name:"mark",
+    age:10
+  }}
+]
+
+test("array seach all by value returns from first depth", function() {
+  var test = new JsonSearch(combo);
+  deepEqual(test.all({val:"A"}), ['["0"]["a"]']);
+})
+
+test("array seach all by value returns from nested", function() {
+  var test = new JsonSearch(combo);
+  deepEqual(test.all({val:"bob"}), ['["2"]["c"]["name"]']);
+})
+
+test("array seach all by value returns multiple", function() {
+  var test = new JsonSearch(combo);
+  deepEqual(test.all({val:10}), ['["2"]["c"]["age"]', '["3"]["d"]["age"]']);
+})
+
 // 
 // test("key"), function () {
+//   return false;
+// }
+// test("regex"), function () {
 //   return false;
 // }
 
