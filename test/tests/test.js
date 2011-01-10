@@ -13,15 +13,15 @@ var hash = {
 var hash_test = new JsonSearch(hash);
 
 test("hash seach all by value returns from first depth", function() {
-  deepEqual(hash_test.all({val:"A"}), ['["a"]']);
+  deepEqual(hash_test.val("A"), ['["a"]']);
 });
 
 test("hash seach all by value returns from nested", function() {
-  deepEqual(hash_test.all({val:"bob"}), ['["c"]["name"]']);
+  deepEqual(hash_test.val("bob"), ['["c"]["name"]']);
 });
 
 test("hash seach all by value returns multiple", function() {
-  deepEqual(hash_test.all({val:10}), ['["c"]["age"]', '["d"]["age"]']);
+  deepEqual(hash_test.val(10), ['["c"]["age"]', '["d"]["age"]']);
 });
 
 var array = [
@@ -32,16 +32,8 @@ var array = [
 ];
 var array_test = new JsonSearch(array);
 
-test("array seach all by value returns from first depth", function() {
-  deepEqual(array_test.all({val:"A"}), ['["0"]']);
-});
-
-test("array seach all by value returns from nested", function() {
-  deepEqual(array_test.all({val:"bob"}), ['["2"]["0"]']);
-});
-
 test("array seach all by value returns multiple", function() {
-  deepEqual(array_test.all({val:10}), ['["2"]["1"]', '["3"]["1"]']);
+  deepEqual(array_test.val(10), ['["2"]["1"]', '["3"]["1"]']);
 });
 
 var combo = [
@@ -56,22 +48,14 @@ var combo = [
     age:10
   }}
 ];
-
 var combo_test = new JsonSearch(combo);
-test("combo seach all by value returns from first depth", function() {
-  deepEqual(combo_test.all({val:"A"}), ['["0"]["a"]']);
-});
-
-test("combo seach all by value returns from nested", function() {
-  deepEqual(combo_test.all({val:"bob"}), ['["2"]["c"]["name"]']);
-});
 
 test("combo seach all by value returns multiple", function() {
-  deepEqual(combo_test.all({val:10}), ['["2"]["c"]["age"]', '["3"]["d"]["age"]']);
+  deepEqual(combo_test.val(10), ['["2"]["c"]["age"]', '["3"]["d"]["age"]']);
 });
 
 test("combo seach all by key returns multiple", function() {
-  deepEqual(combo_test.all({key:"age"}), ['["2"]["c"]["age"]', '["3"]["d"]["age"]']);
+  deepEqual(combo_test.key("age"), ['["2"]["c"]["age"]', '["3"]["d"]["age"]']);
 });
 
 
@@ -83,7 +67,7 @@ var match = {
 var match_test = new JsonSearch(match);
 
 test("match option works if set to true", function () {
-  deepEqual(match_test.all({val:"foo", match:true}), ['["a"]', '["b"]']);
+  deepEqual(match_test.val("foo", {match:true}), ['["a"]', '["b"]']);
 });
 
 // Alternative syntax
@@ -100,11 +84,11 @@ test("match option works if set to true", function () {
 // match_test.val("3", {gt:true})            // Any value which is greater than 3
 
 test("match option does not work if set to false", function () {
-  deepEqual(match_test.all({val:"foo"}), ['["a"]']);
+  deepEqual(match_test.val("foo"), ['["a"]']);
 });
 
 test("match option does not work by default", function () {
-  deepEqual(match_test.all({val:"foo"}), ['["a"]']);
+  deepEqual(match_test.val("foo"), ['["a"]']);
 });
 
 var func = {
@@ -114,8 +98,8 @@ var func = {
 };
 var function_test = new JsonSearch(func);
 test("function is ignored", function(){
-  deepEqual(function_test.all({val:"world"}), ['["c"]']);
-})
+  deepEqual(function_test.val("world"), ['["c"]']);
+});
 
 // 
 

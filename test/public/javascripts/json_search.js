@@ -1,9 +1,9 @@
 var JsonSearch = function (list) {
   this.list = list;
 };
-JsonSearch.prototype.all = function(query){
+JsonSearch.prototype.val = function(keyword, query){
+  var query = query ? query : {};
   var results = [];
-  var keyword = query.key ? query.key : query.val;
   var equal = function(keyword, string){
     return keyword == string;
   };
@@ -22,7 +22,8 @@ JsonSearch.prototype.all = function(query){
     for (var i in collection){
       // console.log("i: " + i);
       // console.log("collection[i]: " + collection[i]);
-      if (selection(keyword, query.key ? i : collection[i])) {
+      // if (selection(keyword, query.key ? i : collection[i])) {
+      if (selection(keyword, collection[i])) {
         results.push(append(result, i));
       };
       if (typeof(collection[i]) == "object") {
@@ -35,7 +36,7 @@ JsonSearch.prototype.all = function(query){
   return results;
 };
 
-JsonSearch.prototype.first = function(){
+JsonSearch.prototype.key = function(){
   return false;
 };
 
