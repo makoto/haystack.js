@@ -1,13 +1,4 @@
 JsonSearch = (function () {
-
-  var equal = function(keyword, string){
-    return keyword == string;
-  };
-
-  var match = function(keyword, string){
-    return string.match(keyword);
-  };
-
   var append = function(body, value){
     return body + '["' + value + '"]';
   };
