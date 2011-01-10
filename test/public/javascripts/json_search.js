@@ -24,7 +24,14 @@ JsonSearch = (function () {
   var setSerachFunctions = function(list, query, callback){
     var query = query || {};
     selections = callback();
-    var select = query.match ? selections.match : selections.equal;
+    if (query.match) {
+      var select = selections.match;
+    }else if(query.func){
+      var select = query.func;
+    }else{
+      var select = selections.equal;
+    };
+
     r = search(select, list);
     console && console.log("RESULT: " + r);
     return r;
