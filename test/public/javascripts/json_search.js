@@ -18,10 +18,10 @@ JsonSearch = (function () {
     for(var key in collection){
       var value = collection[key];
       if(typeof value == 'object'){
-        results = results.concat(search(searchFunction, value, prefix + '["' + key + '"]'));
+        results = results.concat(search(searchFunction, value, append(prefix, key)));
       } else {
-        if(searchFunction(key, value)) results.push(prefix + '["' + key + '"]');
-      }
+        if(searchFunction(key, value)) results.push(append(prefix, key));
+      };
     }
     return results;
   }
