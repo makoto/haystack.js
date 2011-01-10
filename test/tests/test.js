@@ -94,6 +94,8 @@ test("match option works if set to true", function () {
 // match_test.both("name", {}, "bob", {})    // where name = "bob"
 // match_test.key("age", {limit:3})          // Limits output
 // match_test.key("age", {v:false})          // Disable console.log
+// match_test.key("age", {number:"ARRAY"})   // Change ["carparks"]["0"]["attr"] to ["carparks"]["ARRAY"]["attr"]
+//                                           // and remove duplicates
 // match_test.key("/age/i", {match:true})    // Accept regular expression
 // match_test.val("3", {gt:true})            // Any value which is greater than 3
 
