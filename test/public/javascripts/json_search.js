@@ -11,6 +11,7 @@ JsonSearch = (function () {
       if(typeof value == 'object'){
         results = results.concat(search(searchFunction, value, append(prefix, key)));
       } else {
+        console.log(searchFunction);
         if(searchFunction(key, value)) results.push(append(prefix, key));
       };
     }
@@ -31,7 +32,6 @@ JsonSearch = (function () {
     }else{
       var select = selections.equal;
     };
-    console.log(select);
     r = search(select, list);
     console && console.log("RESULT: " + r);
     return r;
