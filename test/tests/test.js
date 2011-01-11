@@ -81,18 +81,21 @@ test("custom function works if defined", function () {
 });
 
 
-// Alternative syntax
-// match_test.key("name")
-// match_test.val("foo")
-// match_test.all("1")                       // either key or value matches "1"
-// match_test.exist("/foo/i")                // Just check whether the key/val exists by using regex.
-// match_test.both("name", {}, "bob", {})    // where name = "bob"
+// A wrapper for any()
+// match_test.key("name")                    // match_test.any(function(k,v){k == "name"})
+// match_test.val("foo")                     // match_test.any(function(k,v){v == "foo" })
+// match_test.all("1")                       // match_test.any(function(k,v){k == 1 || v == 1})
+
+// Just use any() directly
+// match_test.both("name", {}, "bob", {})    // match_test.any(function(k,v){k == "name" && v == "bob"})
+// match_test.key("/age/i", {match:true})    // match_test.any(function(k,v){k.match(/age/i)})
+// match_test.val("3", {gt:true})            // match_test.any(function(k,v){k > 3})
+
 // match_test.key("age", {limit:3})          // Limits output
 // match_test.key("age", {v:false})          // Disable console.log
+// match_test.exist("/foo/i")                // Just check whether the key/val exists by using regex.
 // match_test.key("age", {number:"ARRAY"})   // Change ["carparks"]["0"]["attr"] to ["carparks"]["ARRAY"]["attr"]
 //                                           // and remove duplicates
-// match_test.key("/age/i", {match:true})    // Accept regular expression
-// match_test.val("3", {gt:true})            // Any value which is greater than 3
 
 test("match option does not work if set to false", function () {
   deepEqual(match_test.val("foo"), ['["a"]']);
