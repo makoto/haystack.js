@@ -23,11 +23,11 @@ JsonSearch = (function () {
     this.list = list;
   }
 
-  klass.prototype.key = function(key, query){
+  klass.prototype.key = function(key){
     return search(function(k, v){ return k == key}, this.list)
   };
 
-  klass.prototype.val = function(key, query){
+  klass.prototype.val = function(key){
     return search(function(k, v){ return v == key}, this.list)
   };
 
