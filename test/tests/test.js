@@ -85,16 +85,27 @@ test("any function works for smaller than", function () {
   deepEqual(sumaller_test.any(function(k,v){return v < 3}), ['["a"]', '["b"]']);
 });
 
+var all = {
+  a:1,
+  b:2,
+  c:3,
+  d:"a"
+};
+var all_test = new JsonSearch(all);
+test("all function works for smaller than", function () {
+  deepEqual(all_test.all("a"), ['["a"]', '["d"]']);
+});
+
 
 // A wrapper for any()
-// match_test.key("name")                    // match_test.any(function(k,v){k == "name"})
-// match_test.val("foo")                     // match_test.any(function(k,v){v == "foo" })
-// match_test.all("1")                       // match_test.any(function(k,v){k == 1 || v == 1})
+// match_test.key("name")                    // match_test.any(function(k,v){return k == "name"})
+// match_test.val("foo")                     // match_test.any(function(k,v){return v == "foo" })
+// match_test.all("1")                       // match_test.any(function(k,v){return k == 1 || v == 1})
 
 // Just use any() directly
-// match_test.both("name", {}, "bob", {})    // match_test.any(function(k,v){k == "name" && v == "bob"})
-// match_test.key("/age/i", {match:true})    // match_test.any(function(k,v){k.match(/age/i)})
-// match_test.val("3", {gt:true})            // match_test.any(function(k,v){k > 3})
+// match_test.both("name", {}, "bob", {})    // match_test.any(function(k,v){return k == "name" && v == "bob"})
+// match_test.key("/age/i", {match:true})    // match_test.any(function(k,v){return k.match(/age/i)})
+// match_test.val("3", {gt:true})            // match_test.any(function(k,v){return k > 3})
 
 // match_test.key("age", {limit:3})          // Limits output
 // match_test.key("age", {v:false})          // Disable console.log

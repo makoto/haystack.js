@@ -31,6 +31,10 @@ JsonSearch = (function () {
     return search(function(k, v){ return v == key}, this.list)
   };
 
+  klass.prototype.all = function(key){
+    return search(function(k, v){ return (v == key || k == key)}, this.list)
+  };
+
   klass.prototype.any = function(matcher){
     return search(matcher, this.list)
   };
