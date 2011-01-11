@@ -3,7 +3,7 @@ JsonSearch = (function () {
     return body + '["' + value + '"]';
   };
 
-  function search(searchFunction, collection, prefix){
+  var search = function(searchFunction, collection, prefix){
     var prefix = prefix || "";
     var results = [];
     for(var key in collection){
