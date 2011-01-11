@@ -15,6 +15,7 @@ JsonSearch = (function () {
         if(searchFunction(key, value)) results.push(append(prefix, key));
       };
     }
+    console && console.log("RESULT: " + results);
     return results;
   }
 
@@ -22,41 +23,12 @@ JsonSearch = (function () {
     this.list = list;
   }
 
-  var setSerachFunctions = function(list, query, callback){
-    var query = query || {};
-    selections = callback();
-    if (query.match) {
-      var select = selections.match;
-    }else if(query.func){
-      var select = query.func;
-    }else{
-      var select = selections.equal;
-    };
-    r = search(select, list);
-    console && console.log("RESULT: " + r);
-    return r;
-  }
-
   klass.prototype.key = function(key, query){
-    return setSerachFunctions(
-      this.list, query, function(){
-        return {
-          equal:function(k, v){ return k == key}, 
-          match:function(k, v){ return k.match(key)}
-        }
-      }
-    );
+    return search(function(k, v){ return k == key}, this.list)
   };
 
   klass.prototype.val = function(key, query){
-    return  setSerachFunctions(
-      this.list, query, function(){
-        return {
-          equal:function(k, v){ return v == key}, 
-          match:function(k, v){ return v.match(key)}
-        }
-      }
-    );
+    return search(function(k, v){ return v == key}, this.list)
   };
 
   klass.prototype.any = function(matcher){
