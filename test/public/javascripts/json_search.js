@@ -31,7 +31,7 @@ JsonSearch = (function () {
     }else{
       var select = selections.equal;
     };
-
+    console.log(select);
     r = search(select, list);
     console && console.log("RESULT: " + r);
     return r;
@@ -58,5 +58,10 @@ JsonSearch = (function () {
       }
     );
   };
+
+  klass.prototype.any = function(matcher){
+    return search(matcher, this.list)
+  };
+
   return klass;
 })();

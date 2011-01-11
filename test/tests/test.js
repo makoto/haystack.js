@@ -70,6 +70,17 @@ test("match option works if set to true", function () {
   deepEqual(match_test.val("foo", {match:true}), ['["a"]', '["b"]']);
 });
 
+var custom = {
+  a:1,
+  b:2,
+  c:3
+};
+var custom_test = new JsonSearch(custom);
+test("custom function works if defined", function () {
+  deepEqual(custom_test.any(function(k,v){return v < 3}), ['["a"]', '["b"]']);
+});
+
+
 // Alternative syntax
 // match_test.key("name")
 // match_test.val("foo")
@@ -100,6 +111,8 @@ var function_test = new JsonSearch(func);
 test("function is ignored", function(){
   deepEqual(function_test.val("world"), ['["c"]']);
 });
+
+
 
 // 
 
