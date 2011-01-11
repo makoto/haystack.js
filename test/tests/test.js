@@ -16,6 +16,11 @@ test("hash seach all by value returns from first depth", function() {
   deepEqual(hash_test.val("A"), ['["a"]']);
 });
 
+test("hash seach all by any returns from first depth", function () {
+  deepEqual(hash_test.any(function(k,v){return v == "A"}), ['["a"]']);
+});
+
+
 test("hash seach all by value returns from nested", function() {
   deepEqual(hash_test.val("bob"), ['["c"]["name"]']);
 });
@@ -66,18 +71,18 @@ var match = {
 };
 var match_test = new JsonSearch(match);
 
-test("match option works if set to true", function () {
-  deepEqual(match_test.val("foo", {match:true}), ['["a"]', '["b"]']);
+test("any function works for regex", function () {
+  deepEqual(match_test.any(function(k,v){return v.match(/foo/)}), ['["a"]', '["b"]']);
 });
 
-var custom = {
+var smaller = {
   a:1,
   b:2,
   c:3
 };
-var custom_test = new JsonSearch(custom);
-test("custom function works if defined", function () {
-  deepEqual(custom_test.any(function(k,v){return v < 3}), ['["a"]', '["b"]']);
+var sumaller_test = new JsonSearch(smaller);
+test("any function works for smaller than", function () {
+  deepEqual(sumaller_test.any(function(k,v){return v < 3}), ['["a"]', '["b"]']);
 });
 
 
