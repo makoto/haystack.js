@@ -1,5 +1,7 @@
 # haystack.js
 
+Needle in a haystack
+
 ## Basic Use
 
 match_test.key("name")                    // match_test.any(function(k,v){return k == "name"})

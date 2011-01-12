@@ -1,4 +1,4 @@
-/*  haystack.js JavaScript library, version 0.0.1
+/*  haystack.js Needle in a haystack, version 0.0.1
  *  (c) 2011 Makoto Inoue
  *
  *  Released under MIT license.
