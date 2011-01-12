@@ -4,7 +4,7 @@ Needle in a haystack
 
 ## What is this?
 
-I find it nested JSON hard to examine. I wanted something similar to browser inspector for JSON where you give either key or value of json and it tells you the full path.
+I find that deeply nested JSON is hard to examine. I wanted something similar to browser inspector for JSON where you give either key or value (or both) of json and it tells you the full path.
 
 ## Bookmarklet
 
@@ -16,7 +16,6 @@ For chrome, go to "Bookmarks Bar", right click to select "Add Page", and add the
        script.src = 'https://github.com/makoto/haystack.js/raw/master/dist/haystack-0.0.1.min.js';
        document.getElementsByTagName('body')[0].appendChild(script)
     })();
-
 
 ## Usage
 
