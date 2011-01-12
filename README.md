@@ -2,7 +2,7 @@
 
 Needle in a haystack
 
-## Bookmarklet
+## Bookmarklet (Not working yet)
 
 Drag this to your bookmark toolbar.
 
