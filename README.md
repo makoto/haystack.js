@@ -62,7 +62,7 @@ Search either by Key or Value
 
 ### Advanced Use
 
-"any" takes an function and you can define various condition for the search
+"any" takes a function and you can define various search conditions
 
 Search where key is "name" and value is "bob"
 
