@@ -41,3 +41,5 @@ Haystack = (function () {
 
   return klass;
 })();
+
+H = function(obj){ return new Haystack(obj) };

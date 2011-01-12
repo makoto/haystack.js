@@ -113,3 +113,7 @@ var function_test = new Haystack(func);
 test("function is ignored", function(){
   deepEqual(function_test.val("world"), ['["c"]']);
 });
+
+test("H is shorthand for new HayStack", function(){
+  deepEqual(H(func).val("world"), ['["c"]']);
+});
