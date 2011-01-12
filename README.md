@@ -84,11 +84,21 @@ No need to instantiate HayStack
 
     H(json).val(10) // ['["2"]["c"]["age"]', '["3"]["d"]["age"]']
 
+## FAQ
+
+- Is it different from [jsonquery and jsonpath](http://www.sitepen.com/blog/2008/07/16/jsonquery-data-querying-beyond-jsonpath/)
+
+I think so (though I have never used them). Their focus is to find specific value or object. The intension of Haystack is more for finding the path. This is purely for debugging purpose, so I don't think you want to put this into your production code(hence bookmarklet), but who knows what you use this for.
+
+- Can I use it for DOM?
+
+Maybe not. When I tried, it causes stack overflow.
+
 ## Todo list
 
-- Visualise tree of the selected object.
-- Is it good idea if this works for any dom element? At this moment, it causes stack overflow.
-- If dom search is good idea, add limit of how deep it searches to avoid stack overflow.
+- Compact the result set. When searching for arrays or keys, they tend to return lots of result with similar paths. I could compact [["2"]["age"], ["3"]["age"]] into [["NUM"]["age"]]
+- Visualise tree of the selected object (though this may be able to do it with jsonquery or jsonpath).
+- If DOM search is a good idea, add limit of how deep it searches to avoid stack overflow.
 - Anything else I should add?
 
 ## Hacking guide
