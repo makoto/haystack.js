@@ -6,8 +6,6 @@ Needle in a haystack
 
 I find it nested JSON hard to examine. I wanted something similar to browser inspector for JSON where you give either key or value of json and it tells you the full path.
 
-
-
 ## Bookmarklet
 
 For chrome, go to "Bookmarks Bar", right click to select "Add Page", and add the following javascript.
@@ -21,6 +19,8 @@ For chrome, go to "Bookmarks Bar", right click to select "Add Page", and add the
 
 
 ## Usage
+
+When you go to the page where you want to examine the json, click the bookmarklet. This will load up "Haystack" and "H" functions.
 
 ### Example
 
@@ -79,9 +79,34 @@ Search where key is greater than 3
 
     hs.any(function(k,v){return k > 3}) // ["["2"]["c"]["age"]", "["3"]["d"]["age"]"]
 
-### For inpatients
+### For impatient people
 
 No need to instantiate HayStack
 
     H(json).val(10) // ['["2"]["c"]["age"]', '["3"]["d"]["age"]']
 
+## Todo list
+
+- Visualise tree of the selected object.
+- Is it good idea if this works for any dom element? At this moment, it causes stack overflow.
+- If dom search is good idea, add limit of how deep it searches to avoid stack overflow.
+- Anything else I should add?
+
+## Hacking guide
+
+Make sure if you have ruby and [bundler](http://gembundler.com/) installed
+
+    git clone git@github.com:makoto/haystack.js.git
+    cd haystack.js
+    bundle install
+    rake test
+    # Go to http://localhost:4567/ to make sure that tests all pass
+
+## Credits
+
+- [olivernn](https://github.com/olivernn) and [markevans](https://github.com/markevans) for ideas and reviewing code
+- Took most tests and minification frameworks from [benpickles](https://github.com/benpickles)'s [js-model](https://github.com/benpickles/js-model).
+
+## License
+
+Inside haystack.js file
