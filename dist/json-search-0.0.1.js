@@ -1,3 +1,8 @@
+/*  json-search JavaScript library, version 0.0.1
+ *  (c) 2011 Makoto Inoue
+ *
+ *  Released under MIT license.
+ */
 JsonSearch = (function () {
   var append = function(body, value){
     return body + '["' + value + '"]';

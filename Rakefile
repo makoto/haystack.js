@@ -1,14 +1,14 @@
-# $: << 'lib'
+$: << 'lib'
 # 
-# autoload :Bundler, 'bundler'
+autoload :Bundler, 'bundler'
 # autoload :Docs, 'docs'
 # 
-# task :default => :test
-# 
-# desc 'Create bundled and minified source files.'
-# task :bundle do
-#   Bundler.bundle!
-# end
+task :default => :test
+
+desc 'Create bundled and minified source files.'
+task :bundle do
+  Bundler.bundle!
+end
 # 
 # desc 'Build docs.'
 # task :docs do

@@ -2,7 +2,7 @@ require 'rubygems'
 require 'sinatra'
 require 'json'
 require 'erb'
-# require File.expand_path('../../lib/bundler', __FILE__)
+require File.expand_path('../../lib/bundler', __FILE__)
 
 def json!
   content_type 'application/json'
@@ -14,7 +14,7 @@ end
 
 get '/json-search.js' do
   content_type 'application/x-javascript'
-  # Bundler.bundled
+  Bundler.bundled
 end
 
 get '/tests/:name' do
