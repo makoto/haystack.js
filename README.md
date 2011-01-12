@@ -95,11 +95,16 @@ No need to instantiate HayStack
 
 Make sure if you have ruby and [bundler](http://gembundler.com/) installed
 
+### Running Tests
+
     git clone git@github.com:makoto/haystack.js.git
     cd haystack.js
     bundle install
+    rake bundle
     rake test
     # Go to http://localhost:4567/ to make sure that tests all pass
+
+### Updating 
 
 ## Credits
 
