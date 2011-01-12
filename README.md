@@ -13,6 +13,7 @@ Drag this to your bookmark toolbar.
    document.getElementsByTagName('body')[0].appendChild(script)
  })();" title="Haystack">Haystack Bookmarklet</a>
 
+- [test link to google]("http://www.google.com")
 
 ## Usage
 
