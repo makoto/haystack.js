@@ -103,8 +103,10 @@ Make sure if you have ruby and [bundler](http://gembundler.com/) installed
 
 ## Credits
 
-- [olivernn](https://github.com/olivernn) and [markevans](https://github.com/markevans) for ideas and reviewing code
-- Took most tests and minification frameworks from [benpickles](https://github.com/benpickles)'s [js-model](https://github.com/benpickles/js-model).
+- [olivernn](https://github.com/markevans) for brainstorming the initial idea.
+- [markevans](https://github.com/markevans) for reviewing code, refactoring the code and coming up with this  wonderful name.
+- [benpickles](https://github.com/benpickles) for tests and minification frameworks. They are mostly taken from [js-model](https://github.com/benpickles/js-model).
+- [Qunit](http://docs.jquery.com/Qunit) for tests.
 
 ## License
 
