@@ -11,7 +11,6 @@ Haystack = (function () {
       if(typeof value == 'object'){
         results = results.concat(search(searchFunction, value, append(prefix, key)));
       } else {
-        console.log(searchFunction);
         if(searchFunction(key, value)) results.push(append(prefix, key));
       };
     }
