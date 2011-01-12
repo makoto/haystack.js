@@ -1,4 +1,4 @@
-# Haysack
+# haystack.js
 
 ## Basic Use
 
