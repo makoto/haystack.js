@@ -12,7 +12,7 @@ get '/' do
   erb :index
 end
 
-get '/json-search.js' do
+get '/haystack.js' do
   content_type 'application/x-javascript'
   Bundler.bundled
 end

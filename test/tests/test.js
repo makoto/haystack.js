@@ -10,7 +10,7 @@ var hash = {
     age:10
   }
 };
-var hash_test = new JsonSearch(hash);
+var hash_test = new Haystack(hash);
 
 test("hash seach all by value returns from first depth", function() {
   deepEqual(hash_test.val("A"), ['["a"]']);
@@ -35,7 +35,7 @@ var array = [
   ["bob", 10],
   ["mark",10]
 ];
-var array_test = new JsonSearch(array);
+var array_test = new Haystack(array);
 
 test("array seach all by value returns multiple", function() {
   deepEqual(array_test.val(10), ['["2"]["1"]', '["3"]["1"]']);
@@ -53,7 +53,7 @@ var combo = [
     age:10
   }}
 ];
-var combo_test = new JsonSearch(combo);
+var combo_test = new Haystack(combo);
 
 test("combo seach all by value returns multiple", function() {
   deepEqual(combo_test.val(10), ['["2"]["c"]["age"]', '["3"]["d"]["age"]']);
@@ -69,7 +69,7 @@ var match = {
   b:"foos",
   c:"bar"
 };
-var match_test = new JsonSearch(match);
+var match_test = new Haystack(match);
 
 test("any function works for regex", function () {
   deepEqual(match_test.any(function(k,v){return v.match(/foo/)}), ['["a"]', '["b"]']);
@@ -80,7 +80,7 @@ var smaller = {
   b:2,
   c:3
 };
-var sumaller_test = new JsonSearch(smaller);
+var sumaller_test = new Haystack(smaller);
 test("any function works for smaller than", function () {
   deepEqual(sumaller_test.any(function(k,v){return v < 3}), ['["a"]', '["b"]']);
 });
@@ -91,7 +91,7 @@ var all = {
   c:3,
   d:"a"
 };
-var all_test = new JsonSearch(all);
+var all_test = new Haystack(all);
 test("all function works for smaller than", function () {
   deepEqual(all_test.all("a"), ['["a"]', '["d"]']);
 });
@@ -109,7 +109,7 @@ var func = {
   b:function(){},
   c:"world"
 };
-var function_test = new JsonSearch(func);
+var function_test = new Haystack(func);
 test("function is ignored", function(){
   deepEqual(function_test.val("world"), ['["c"]']);
 });

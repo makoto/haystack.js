@@ -12,11 +12,11 @@ class Bundler
     def bundle!
       FileUtils.mkdir_p(DIST_DIR)
 
-      write "#{DIST_DIR}/json-search-#{version}.js" do
+      write "#{DIST_DIR}/haystack-#{version}.js" do
         Fewer::Engines::Js.new(SRC_DIR, files).read
       end
 
-      write "#{DIST_DIR}/json-search-#{version}.min.js" do
+      write "#{DIST_DIR}/haystack-#{version}.min.js" do
         Fewer::Engines::Js.new(SRC_DIR, files, :min => true).read
       end
     end
@@ -28,7 +28,7 @@ class Bundler
     private
       def files
         @files ||= %w(
-          json-search
+          haystack
         )
       end
 
