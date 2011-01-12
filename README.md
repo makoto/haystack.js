@@ -104,8 +104,6 @@ Make sure if you have ruby and [bundler](http://gembundler.com/) installed
     rake test
     # Go to http://localhost:4567/ to make sure that tests all pass
 
-### Updating 
-
 ## Credits
 
 - [olivernn](https://github.com/markevans) for brainstorming the initial idea.
