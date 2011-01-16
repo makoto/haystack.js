@@ -59,6 +59,9 @@ Search either by Key or Value
 
     hs.all("a")              // ["["0"]["a"]", "["3"]["d"]["alphabet"]"]
 
+Matches either by Key or Value
+
+    hs.reg(/b/i)              // ["["1"]["b"]", "["3"]["d"]["alphabet"]"]
 
 ### Advanced Use
 
