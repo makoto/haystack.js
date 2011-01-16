@@ -12,8 +12,16 @@ class Bundler
     def bundle!
       FileUtils.mkdir_p(DIST_DIR)
 
+      write "#{DIST_DIR}/haystack.js" do
+        Fewer::Engines::Js.new(SRC_DIR, files).read
+      end
+
       write "#{DIST_DIR}/haystack-#{version}.js" do
         Fewer::Engines::Js.new(SRC_DIR, files).read
+      end
+
+      write "#{DIST_DIR}/haystack.min.js" do
+        Fewer::Engines::Js.new(SRC_DIR, files, :min => true).read
       end
 
       write "#{DIST_DIR}/haystack-#{version}.min.js" do
