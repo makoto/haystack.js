@@ -13,7 +13,7 @@ For chrome, go to "Bookmarks Bar", right click to select "Add Page", and add the
     javascript:(function() {
        var script = document.createElement('script');
        script.type = 'text/javascript';
-       script.src = 'https://github.com/makoto/haystack.js/raw/master/dist/haystack-0.0.1.min.js';
+       script.src = 'https://github.com/makoto/haystack.js/raw/master/dist/haystack.js';
        document.getElementsByTagName('body')[0].appendChild(script)
     })();
 
