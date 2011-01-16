@@ -16,6 +16,11 @@ test("hash seach all by value returns from first depth", function() {
   deepEqual(hash_test.val("A"), ['["a"]']);
 });
 
+test("hash seach all by key returns from first depth with child objects", function() {
+  deepEqual(hash_test.key("c"), ['["c"]']);
+});
+
+
 test("hash seach all by any returns from first depth", function () {
   deepEqual(hash_test.any(function(k,v){return v == "A"}), ['["a"]']);
 });
