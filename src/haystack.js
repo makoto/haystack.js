@@ -39,6 +39,16 @@ Haystack = (function () {
     return search(matcher, this.list)
   };
 
+  klass.prototype.reg = function(reg){
+    return search(function(k, v){
+      if(typeof(value) == 'string'){
+        result = k.match(reg) || v.match(reg)
+      }else{
+        result = k.match(reg)
+      }
+      return result
+    }, this.list)
+  };
   return klass;
 })();
 

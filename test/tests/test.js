@@ -122,3 +122,15 @@ test("function is ignored", function(){
 test("H is shorthand for new HayStack", function(){
   deepEqual(H(func).val("world"), ['["c"]']);
 });
+
+var Config = {
+  api:{
+    "bar_base_uri":"http://products.com",
+    "foo_base_uri":"http://transport.com"
+  },
+  d:1
+};
+
+test("Matches anything", function(){
+  deepEqual(H(Config).reg(/base_uri/), ['["api"]["bar_base_uri"]','["api"]["foo_base_uri"]']);
+});
