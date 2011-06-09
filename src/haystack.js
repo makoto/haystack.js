@@ -15,7 +15,7 @@ Haystack = (function () {
         results = results.concat(search(searchFunction, value, append(prefix, key)));
       };
     }
-    console && console.log("RESULT: " + results);
+    // console && console.log("RESULT: " + results);
     return results;
   }
 
@@ -41,7 +41,7 @@ Haystack = (function () {
 
   klass.prototype.reg = function(reg){
     return search(function(k, v){
-      if(typeof(value) == 'string'){
+      if(typeof(v) == 'string'){
         result = k.match(reg) || v.match(reg)
       }else{
         result = k.match(reg)

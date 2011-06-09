@@ -132,5 +132,5 @@ var Config = {
 };
 
 test("Matches anything", function(){
-  deepEqual(H(Config).reg(/base_uri/), ['["api"]["bar_base_uri"]','["api"]["foo_base_uri"]']);
+  deepEqual(H(Config).reg(/\.com/), ['["api"]["bar_base_uri"]','["api"]["foo_base_uri"]']);
 });
