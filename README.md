@@ -48,12 +48,11 @@ Let's say you have this kind of json object
 
 Search by Key
 
-    hs.val(10)               // ['["2"]["c"]["age"]', '["3"]["d"]["age"]']
-    
+    hs.key("a")              // ["["0"]["a"]"]
 
 Search by Value
 
-    hs.key("a")              // ["["0"]["a"]"]
+    hs.val(10)               // ['["2"]["c"]["age"]', '["3"]["d"]["age"]']
 
 Search either by Key or Value
 
