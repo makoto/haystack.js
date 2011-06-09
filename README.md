@@ -80,6 +80,10 @@ Search where key is greater than 3
 
     hs.any(function(k,v){return k > 3}) // ["["2"]["c"]["age"]", "["3"]["d"]["age"]"]
 
+Return the matched value.
+
+    hs.key("age").matched() // [10,10]
+
 ### For impatient people
 
 No need to instantiate HayStack
