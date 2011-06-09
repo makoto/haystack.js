@@ -1,3 +1,27 @@
+// Array.map from  https://github.com/olivernn/davis.js/blob/master/src/davis.utils.js
+if (Array.prototype.map) {
+  var map = function (array, fn) {
+    return array.map(fn, arguments[2])
+  }
+} else {
+  var map = function(array, fn) {
+    if (array === void 0 || array === null) throw new TypeError();
+    var t = Object(array);
+    var len = t.length >>> 0;
+    if (typeof fn !== "function") throw new TypeError();
+    
+
+    var res = new Array(len);
+    var thisp = arguments[2];
+    for (var i = 0; i < len; i++) {
+      if (i in t) res[i] = fn.call(thisp, t[i], i, t);
+    }
+
+    return res;
+  };
+};
+
+// Haystack
 Haystack = (function () {
   var append = function(body, value){
     return body + '["' + value + '"]';
@@ -16,6 +40,13 @@ Haystack = (function () {
       };
     }
     // console && console.log("RESULT: " + results);
+    results.matched = function(idx){
+      return this.map(
+        function(result){
+          return eval("collection" + result);
+        }
+      )
+    }
     return results;
   }
 

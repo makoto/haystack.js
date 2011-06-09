@@ -134,3 +134,7 @@ var Config = {
 test("Matches anything", function(){
   deepEqual(H(Config).reg(/\.com/), ['["api"]["bar_base_uri"]','["api"]["foo_base_uri"]']);
 });
+
+test("eval", function(){
+  deepEqual(H(Config).reg(/\.com/).matched()[0], "http://products.com")
+})
